@@ -263,28 +263,7 @@ getgenv().AimPart = "UpperTorso" -- For R15 Games: {UpperTorso, LowerTorso, Huma
        end
   end
     end) 
-    
-    -- // Overwrite to account downed
-function Aiming.Check()
-    -- // Check A
-    if not (Aimlock == true and AimlockTarget ~= LocalPlayer and getgenv().AimPart ~= nil) then
-        return false
-    end
-
-    -- // Check if downed
-    local Character = Aiming.Character(Aimlock.Selected)
-    local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
-    local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
-
-    -- // Check B
-    if (KOd or Grabbed) then
-        return false
-    end
-
-    -- //
-    return true
-end
-
+ 
 -- // Hook
 -- // Custom Functions
 local CalcChance = function(percentage)
